@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 50% 5%;
+    --foreground: 0 0% 100%;
+
+    --primary: 255 92% 76%;
+    --primary-foreground: 240 50% 5%;
+
+    --secondary: 280 91% 73%;
+    --secondary-foreground: 240 50% 5%;
+
+    --muted: 240 50% 20%;
+    --muted-foreground: 240 10% 80%;
+
+    --accent: 280 91% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --card: 240 50% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 50% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --border: 240 50% 20%;
+    --input: 240 50% 20%;
+    --ring: #fff/80;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Gradient colors */
+    --gradient-start: 255 92% 76%;
+    --gradient-end: 280 91% 73%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: #fff/80;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring:  #fff/80;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply animated-gradient text-foreground;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(60deg, #4772e8, #116cd4, #3e37b8, #044a9a);
+  background-size: 300% 300%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 70%;
+  }
+  50% {
+    background-position: 100% 70%;
+  }
+  100% {
+    background-position: 0% 70%;
+  }
+}
+
+.header-bg {
+  background: linear-gradient(45deg, #0f5ab0, #3084e6, #5a9eeecf);
+  box-shadow: #0c1f779c 1px 1px 15px 4px
+}
+
+.btn {
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  background: linear-gradient(96deg, #53b2fe, #065af3);
+  background-size: 600%;
+}
+
+/* The animation starts here */
+.animated-box {
+  position: relative;
+}
+
+.animated-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background: linear-gradient(120deg, #00F260, #0575E6, #00F260);
+  background-size: 300% 300%;
+  clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.animated-box.in:after {
+  animation: frame-enter 1s forwards ease-in-out reverse, gradient-animation 4s ease-in-out infinite;
+}
+
+/* motion */
+@keyframes gradient-animation {
+  0% {
+    background-position: 15% 0%;
+  }
+  50% {
+    background-position: 85% 100%;
+  }
+  100% {
+    background-position: 15% 0%;
+  }
+}
+
+@keyframes frame-enter {
+  0% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+  25% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+  50% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, 100% 0%, 0% 0%);
+  }
+  75% {
+    -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 0%, 0% 0%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 0% 100%);
+  }
+}
+
+.countdown-clock {
+  border: 1px solid;
+  padding: 1em;
+  padding-top: 1.5em;
+  margin-top: 2em;
+  border-radius: 1em;
+  background: linear-gradient(1deg, #189ee1, #7e5fe9bf);
+}
+
+.countdown-clock .title {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  line-height: 20px;
+  padding-inline: 1em;
+  background: inherit;
+}
+
+
+.isolation {
+  isolation: isolate;
+}
+
+.animated-border {
+  --border-width: 1px;
+  --radius: 10px;
+
+  position: relative;
+  border-radius: var(--radius);
+  border: var(--border-width) solid transparent;
+}
+
+.animated-border::before {
+  content: " ";
+  position: absolute;
+  inset: calc(var(--border-width) * -1);
+  z-index: -1;
+  border: inherit;
+  border-radius: inherit;
+  background-image: conic-gradient(from var(--angle), #e9ebf0 80%, #e0d1ffb5 88%, #7c6e9b 92%, #f0f0f5 100%);
+  background-origin: border-box;
+  -webkit-mask:
+    linear-gradient(black, black) content-box,
+    linear-gradient(black, black);  
+  mask: linear-gradient(black, black),
+        linear-gradient(black, black);
+  -webkit-mask-clip: content-box, border-box;  
+  mask-clip: content-box, border-box;
+  -webkit-mask-composite: xor;  
+  mask-composite: exclude;
+  animation: spin 5s linear infinite;
+}
+
+
+@supports not (background: paint(something)) {
+  .animated-border::before {
+background-image: conic-gradient(#381D6A 80%, #E0D1FF 88%, #E0D1FF 92%, #381D6A 100%);    
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+@keyframes spin {
+  to {
+    --angle: 1turn;
+  }
+}
+
+.footer {
+  background: linear-gradient(45deg, #0f5ab0, #3084e6, #5a9eeecf);
+}
+
+

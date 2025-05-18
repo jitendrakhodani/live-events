@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 17 24 39;
+    --card: 255 255 255;
+    --card-foreground: 17 24 39;
+    --popover: 255 255 255;
+    --popover-foreground: 17 24 39;
+    --primary: 156 125 251;
+    --primary-foreground: 255 255 255;
+    --secondary: 156 125 251;
+    --secondary-foreground: 255 255 255;
+    --muted: #fff/90;
+    --muted-foreground: #fff/90;
+    --accent: 156 125 251;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: #fff;
+    --input: #fff;
+    --ring: #fff/80;
+  }
+
+  .dark {
+    --background: 17 24 39;
+    --foreground: 255 255 255;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-lg px-4 py-2 font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+  .btn-ghost {
+    @apply hover:bg-gray-800/50;
+  }
+  .card {
+    @apply rounded-lg bg-card p-6 shadow-md;
+  }
+  .input {
+    @apply flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .label {
+    @apply mb-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+}
