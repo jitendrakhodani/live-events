@@ -35,7 +35,7 @@ function Register() {
   return (
     <PageLayout>
       <div className="flex items-center justify-center flex-grow w-full px-4 mt-4">
-        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px] bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+        <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg w-full max-w-md">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight text-white">Create an account</h1>
             <p className="text-sm text-white/80">Enter your details to get started</p>
@@ -92,7 +92,8 @@ function Register() {
 
               <Button
                 type="submit"
-                className="w-full bg-white hover:bg-white/90 text-purple-600 font-medium"
+                variant="ghost" 
+                className="mx-auto text-white btn" 
                 disabled={registerMutation.isPending}
               >
                 {registerMutation.isPending ? 'Creating account...' : 'Sign Up'}
