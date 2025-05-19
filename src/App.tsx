@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import BrowseEvents from './pages/BrowseEvents'
+import EventsList from './pages/EventsList'
 import CreateEvent from './pages/CreateEvent'
 import EventDetails from './pages/EventDetails'
 import Header from './components/layout/Header'
@@ -34,7 +34,7 @@ function AppContent() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="events" element={<BrowseEvents />} />
+            <Route path="events" element={<EventsList />} />
             <Route path="events/create" element={<CreateEvent />} />
             <Route path="events/:eventId" element={<EventDetails />} />
             <Route path="auth/login" element={<Login />} />

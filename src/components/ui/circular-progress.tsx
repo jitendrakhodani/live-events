@@ -20,6 +20,7 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
         style={{ width: size, height: size }}
         {...props}
       >
+        
         <svg
           className="transform -rotate-90"
           width={size}

@@ -13,7 +13,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children, className }) => {
       "min-h-screen mt-12",
       className
     )}>
-      
       {children}
     </div>
   );

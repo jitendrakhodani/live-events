@@ -10,14 +10,14 @@ import {
 const Footer: React.FC = () => {
   return (
     <footer className="footer border-t border-border py-3">
-      <div className="container max-w-screen-2xl grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
+      
+        {/* <div>
           <h3 className="text-lg font-medium">NowCast</h3>
           <p className="text-sm text-foreground">
             Connecting people through live events.
           </p>
         </div>
-       
+        */}
         <div className="w-full">
           {/* <h4 className="text-md font-medium mb-4">Connect With Us</h4>
           <div className="flex space-x-4">
@@ -34,12 +34,12 @@ const Footer: React.FC = () => {
               <Linkedin className="h-6 w-6" />
             </a>
           </div> */}
-         
+          
         </div>
-        <div> <p className="mt-4 text-xs text-foreground">
+        {/* <div> <p className="mt-4 text-xs text-foreground">
             © {new Date().getFullYear()} NowCast. All rights reserved.
-          </p></div>
-      </div>
+          </p></div> */}
+      
     </footer>
   );
 };

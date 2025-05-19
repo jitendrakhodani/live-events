@@ -10,6 +10,8 @@ import {
   UserIcon, 
   LogInIcon 
 } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+
 
 const Header: React.FC = () => {
   const user = useAuthStore(state => state.user);
@@ -44,7 +46,13 @@ const Header: React.FC = () => {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center space-x-2">
-            {user ? (
+          <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+            {/* {user ? (
               <>
                 <Button 
                   variant="ghost" 
@@ -83,7 +91,7 @@ const Header: React.FC = () => {
                   </Link>
                 </Button>
               </>
-            )}
+            )} */}
           </nav>
         </div>
       </div>
