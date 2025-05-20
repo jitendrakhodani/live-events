@@ -8,7 +8,8 @@ import PageLayout from '../components/layout/PageLayout';
 import EventCard from '../components/shared/EventCard';
 
 const BrowseEvents: React.FC = () => {
-  const { events, loading } = useEvents();
+  const { events, isLoading } = useEvents();
+  
   const [searchTerm, setSearchTerm] = React.useState('');
 
   const filteredEvents = events.filter((event: Event) => 
@@ -19,7 +20,7 @@ const BrowseEvents: React.FC = () => {
   return (
     <PageLayout>
       <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex items-center mb-8 gap-16">
           <div className="flex items-center gap-2">
             <CalendarIcon className="h-5 w-5" />
             <h1 className="text-3xl font-bold">Browse Events</h1>
@@ -36,20 +37,11 @@ const BrowseEvents: React.FC = () => {
               className="w-full bg-white/10 text-white/70 placeholder-white/40 rounded-sm pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             />
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/events/create">
-              <Button variant="ghost" className="btn-ghost">
-              <PlusIcon className="mr-2 h-4 w-4" />
-                Create Event
-              </Button>
-            </Link>
-         
-          </div>
         </div>
-        {loading ? (
+        {isLoading ? (
           <div className="text-center text-white/70">Loading events...</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 isolation">
+          <div className="flex flex-wrap gap-4 isolation">
             {filteredEvents.length === 0 ? (
               <div className="text-center text-white/70">No events found matching your search.</div>
             ) : (

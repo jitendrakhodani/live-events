@@ -54,7 +54,7 @@
     @apply hover:bg-gray-800/50;
   }
   .card {
-    @apply rounded-lg bg-card p-6 shadow-md;
+    @apply rounded-lg bg-card p-4 shadow-md;
   }
   .input {
     @apply flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50;

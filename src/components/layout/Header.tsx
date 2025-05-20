@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuthStore } from '../../stores/useAuthStore';
+
 import LoginPopover from '../auth/LoginPopover';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
@@ -14,7 +14,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 
 const Header: React.FC = () => {
-  const user = useAuthStore(state => state.user);
+  
   return (
     <header className="sticky top-0 z-50 w-full header-bg bg-clip-padding backdrop-filter  backdrop-blur-none bg-opacity-20 backdrop-saturate-150 backdrop-contrast-50">
       <div className="container flex h-14 max-w-screen-2xl items-center">
@@ -52,46 +52,6 @@ const Header: React.FC = () => {
       <SignedIn>
         <UserButton />
       </SignedIn>
-            {/* {user ? (
-              <>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  className="text-white hover:bg-gray-800/50 hover:text-white"
-                >
-                  <UserIcon className="mr-2 h-4 w-4" /> {user.username}
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  className="text-white hover:bg-gray-800/50 hover:text-white"
-                  onClick={() => useAuthStore.getState().clearUser()}
-                >
-                  <LogInIcon className="mr-2 h-4 w-4 rotate-180" /> Logout
-                </Button>
-              </>
-            ) : (
-              <>
-                <LoginPopover>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    className="text-white"
-                  >
-                    <LogInIcon className="mr-2 h-4 w-4" /> Login
-                  </Button>
-                </LoginPopover>
-                <Button 
-                variant="ghost" 
-                  className="text-white btn" 
-                  asChild
-                >
-                  <Link to="/auth/register">
-                    Register
-                  </Link>
-                </Button>
-              </>
-            )} */}
           </nav>
         </div>
       </div>

@@ -10,7 +10,7 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ children, className }) => {
   return (
     <div className={cn(
-      "min-h-screen mt-12",
+      "",
       className
     )}>
       {children}

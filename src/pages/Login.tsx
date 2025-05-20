@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useLogin } from '@/api/auth';
+
 import { useNavigate } from 'react-router-dom';
 
 const loginSchema = z.object({
@@ -17,20 +17,12 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 function Login() {
   const navigate = useNavigate();
-  const loginMutation = useLogin();
   
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema)
   });
 
-  const onSubmit = async (data: LoginFormData) => {
-    try {
-      await loginMutation.mutateAsync(data);
-      navigate('/');
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
+  
 
   return (
     <PageLayout>
@@ -43,7 +35,7 @@ function Login() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form className="space-y-4">
             <div className="space-y-2 ">
               <Input
                 {...register('email')}
@@ -71,9 +63,9 @@ function Login() {
             <Button
               type="submit"
               className="w-full bg-white hover:bg-white/90 text-purple-600 font-medium"
-              disabled={loginMutation.isPending}
+           
             >
-              {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
+               'Sign in'
             </Button>
           </form>
         </div>

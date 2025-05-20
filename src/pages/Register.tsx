@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useRegister } from '@/api/auth';
+
 import { useNavigate } from 'react-router-dom';
 
 const registerSchema = z.object({
@@ -18,19 +18,12 @@ type RegisterFormData = z.infer<typeof registerSchema>;
 
 function Register() {
   const navigate = useNavigate();
-  const registerMutation = useRegister();
+  
   const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema)
   });
 
-  const onSubmit = async (data: RegisterFormData) => {
-    try {
-      await registerMutation.mutateAsync(data);
-      navigate('/');
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
-  };
+  
 
   return (
     <PageLayout>
@@ -41,7 +34,7 @@ function Register() {
             <p className="text-sm text-white/80">Enter your details to get started</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form  className="space-y-4">
             <div className="space-y-4">
               <div className="space-y-2">
                 <Input
@@ -94,9 +87,9 @@ function Register() {
                 type="submit"
                 variant="ghost" 
                 className="mx-auto text-white btn" 
-                disabled={registerMutation.isPending}
+               
               >
-                {registerMutation.isPending ? 'Creating account...' : 'Sign Up'}
+                'Sign Up'
               </Button>
             </div>
           </form>
