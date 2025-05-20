@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { useLogin } from '../../api/auth';
+
 import {
   Popover,
   PopoverContent,
@@ -23,18 +23,10 @@ interface LoginPopoverProps {
 }
 
 const LoginPopover: React.FC<LoginPopoverProps> = ({ children }) => {
-  const loginMutation = useLogin();
+  
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema)
   });
-
-  const onSubmit = async (data: LoginFormData) => {
-    try {
-      await loginMutation.mutateAsync(data);
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
 
   return (
     <Popover>
@@ -48,7 +40,7 @@ const LoginPopover: React.FC<LoginPopoverProps> = ({ children }) => {
             <p className="text-sm text-white/80">Enter your credentials to sign in</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form className="space-y-4">
             <div className="space-y-2">
               <Input
                 {...register('email')}
@@ -76,9 +68,9 @@ const LoginPopover: React.FC<LoginPopoverProps> = ({ children }) => {
             <Button
               type="submit"
               className="w-full bg-white hover:bg-white/90 text-purple-600 font-medium"
-              disabled={loginMutation.isPending}
+              
             >
-              {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
+              'Sign in'
             </Button>
           </form>
         </div>
