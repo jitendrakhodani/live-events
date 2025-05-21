@@ -20,7 +20,7 @@ const Header: React.FC = () => {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 hidden md:flex">
           <Link to="/" className="flex items-center space-x-2 mr-20 text-white hover:text-white">
-            <CalendarIcon className="h-6 w-6" />
+            <img src="../../src/styles/logo.avif" width="42" height="42" alt="NowCast" />
             <span className="font-bold">NowCast</span>
           </Link>
           <nav className="flex items-center space-x-4 lg:space-x-6">
