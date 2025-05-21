@@ -47,17 +47,17 @@ const CountdownClock: React.FC<CountdownClockProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="grid grid-cols-4 gap-2 w-1/2 pt-2 countdown-clock relative">
-      <div className='absolute -top-4 left-4 bg-white/10 rounded-sm p-1 title'>Live Streaming Begins In:</div>
+    <div className="grid grid-cols-4 w-[40%] pt-2 countdown-clock relative">
+      <div className='absolute -top-4 left-4 bg-white/10 rounded-sm p-1 title'>Event Begins In:</div>
       {timeUnits.map((unit) => (
-        <div key={unit.label} className="p-2 flex flex-col items-center justify-center transition-colors">
+        <div key={unit.label} className="flex flex-col items-center justify-center transition-colors">
           <CircularProgress 
             value={(unit.value / unit.max) * 100}
-            size={80}
+            size={65}
             strokeWidth={8}
             className="mb-2"
           >
-            <div className="text-2xl font-bold">{unit.value}</div>
+            <div className="text-xl font-bold">{unit.value}</div>
           </CircularProgress>
           <div className="text-sm font-medium text-white">{unit.label}</div>
         </div>

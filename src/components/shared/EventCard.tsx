@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { CalendarIcon, MapPinIcon } from "lucide-react";
+import { CalendarIcon} from "lucide-react";
 import { Event } from '../../types/Event';
 import CountdownClock from './CountdownClock';
+import { useEventStore } from '../../stores/useEventStore';
 
 interface EventCardProps {
   event: Event;
@@ -13,15 +14,13 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event, showCountdown = true }) => {
- 
+  
   
   return (
     <Card className="w-[350px] h-[200px]">
       <CardHeader>
         <div className="flex justify-between items-start">
-          
             <CardTitle className="text-xl mb-2">{event.title}</CardTitle>
-          
         </div>
       </CardHeader>
       <CardContent>
@@ -33,13 +32,11 @@ const EventCard: React.FC<EventCardProps> = ({ event, showCountdown = true }) =>
               {event.event_timestamp}
             </span>
           </div>
-      
           {showCountdown && (
             <div className="mt-4">
               {/* <CountdownClock targetDate={event.event_timestamp} /> */}
             </div>
           )}
-        
         </div>
       </CardContent>
       <CardFooter>

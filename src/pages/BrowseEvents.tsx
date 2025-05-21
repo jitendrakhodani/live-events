@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
 import { useEvents } from '../hooks/useEvents';
 import { Event } from '../types/Event';
-import { CalendarIcon, SearchIcon, FilterIcon, ClockIcon, UserIcon, PlusIcon } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
 import PageLayout from '../components/layout/PageLayout';
 import EventCard from '../components/shared/EventCard';
 
@@ -20,10 +18,9 @@ const BrowseEvents: React.FC = () => {
   return (
     <PageLayout>
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center mb-8 gap-16">
+        <div className="flex items-center mb-8 gap-16 justify-center">
           <div className="flex items-center gap-2">
-            <CalendarIcon className="h-5 w-5" />
-            <h1 className="text-3xl font-bold">Browse Events</h1>
+            <h1 className="text-3xl font-bold">Events</h1>
           </div>
           <div className="w-[30%] relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -41,14 +38,12 @@ const BrowseEvents: React.FC = () => {
         {isLoading ? (
           <div className="text-center text-white/70">Loading events...</div>
         ) : (
-          <div className="flex flex-wrap gap-4 isolation">
+          <div className="flex flex-wrap gap-8 isolation justify-center">
             {filteredEvents.length === 0 ? (
               <div className="text-center text-white/70">No events found matching your search.</div>
             ) : (
               filteredEvents.map((event: Event) => (
-                
                   <EventCard event={event} showCountdown={false}/>
-                
               ))
             )}
           </div>

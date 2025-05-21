@@ -13,13 +13,13 @@ import useAuth from '@/hooks/useAuth';
 const createEventSchema = z.object({
   title: z.string().min(3, 'Title must be at least 3 characters'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
-  asset_url: z.string().url('Invalid URL').optional().or(z.literal('')),
+  asset_url: z.string().url('Invalid URL'),
   event_timestamp: z.string().refine(val => !isNaN(Date.parse(val)), { 
     message: 'Invalid date and time' 
   }),
   topic: z.string().min(3, 'Topic must be at least 3 characters'),
-  venue: z.string().min(3, 'Venue must be at least 3 characters'),
-  speakers: z.string().refine(
+  venue: z.string().optional(),
+  speakers: z.string().optional().refine(
     val => {
       if (!val) return true;
       const speakers = val.split(',').map(s => s.trim());
@@ -85,7 +85,7 @@ const CreateEvent: React.FC = () => {
                 <Input
                   {...register('title')}
                   placeholder="Event title"
-                  className={`bg-white/20 border-white/30 text-white ${errors.title ? 'border-red-500' : ''}`}
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.title ? 'border-red-500' : ''}`}
                 />
                 {errors.title && <p className="text-red-300 text-sm mt-1">{errors.title.message}</p>}
               </div>
@@ -105,17 +105,17 @@ const CreateEvent: React.FC = () => {
                 <Input
                   {...register('topic')}
                   placeholder="Event topic"
-                  className={`bg-white/20 border-white/30 text-white ${errors.topic ? 'border-red-500' : ''}`}
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.topic ? 'border-red-500' : ''}`}
                 />
                 {errors.topic && <p className="text-red-300 text-sm mt-1">{errors.topic.message}</p>}
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white/80">Venue *</label>
+                <label className="block text-sm font-medium text-white/80">Venue</label>
                 <Input
                   {...register('venue')}
                   placeholder="Event venue"
-                  className={`bg-white/20 border-white/30 text-white ${errors.venue ? 'border-red-500' : ''}`}
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.venue ? 'border-red-500' : ''}`}
                 />
                 {errors.venue && <p className="text-red-300 text-sm mt-1">{errors.venue.message}</p>}
               </div>
@@ -125,18 +125,18 @@ const CreateEvent: React.FC = () => {
                 <Input
                   {...register('speakers')}
                   placeholder="Speaker 1, Speaker 2, ..."
-                  className={`bg-white/20 border-white/30 text-white ${errors.speakers ? 'border-red-500' : ''}`}
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.speakers ? 'border-red-500' : ''}`}
                 />
                 {errors.speakers && <p className="text-red-300 text-sm mt-1">{errors.speakers.message}</p>}
               </div>
 
               <div className="space-y-2 md:col-span-2">
-                <label className="block text-sm font-medium text-white/80">Asset URL (optional)</label>
+                <label className="block text-sm font-medium text-white/80">Youtube Video URL *</label>
                 <Input
                   type="url"
                   {...register('asset_url')}
-                  placeholder="https://example.com/asset.jpg"
-                  className={`bg-white/20 border-white/30 text-white ${errors.asset_url ? 'border-red-500' : ''}`}
+                  placeholder=""
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.asset_url ? 'border-red-500' : ''}`}
                 />
                 {errors.asset_url && <p className="text-red-300 text-sm mt-1">{errors.asset_url.message}</p>}
               </div>
@@ -147,7 +147,7 @@ const CreateEvent: React.FC = () => {
                   {...register('description')}
                   placeholder="Detailed event description..."
                   rows={4}
-                  className={`bg-white/20 border-white/30 text-white ${errors.description ? 'border-red-500' : ''}`}
+                  className={`placeholder:text-white/70 bg-white/20 border-white/30 text-white ${errors.description ? 'border-red-500' : ''}`}
                 />
                 {errors.description && <p className="text-red-300 text-sm mt-1">{errors.description.message}</p>}
               </div>

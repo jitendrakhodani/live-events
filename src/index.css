@@ -77,8 +77,8 @@
 .animated-gradient {
   background: linear-gradient(60deg, #4772e8, #116cd4, #3e37b8, #044a9a);
   background-size: 300% 300%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
+  animation: gradient 10s ease infinite;
+  height: 100%;
 }
 
 @keyframes gradient {
@@ -165,15 +165,16 @@
 .countdown-clock {
   border: 1px solid;
   padding: 1em;
-  padding-top: 1.5em;
+  padding-top: 1.7em;
   margin-top: 2em;
   border-radius: 1em;
   background: linear-gradient(1deg, #189ee1, #7e5fe9bf);
+  box-shadow: inset #fff 0px 0px 5px 0px;
 }
 
 .countdown-clock .title {
   border: 1px solid rgba(255, 255, 255, 0.5);
-  line-height: 20px;
+  line-height: 15px;
   padding-inline: 1em;
   background: inherit;
 }

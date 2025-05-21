@@ -58,11 +58,32 @@ export const useEvents = () => {
     },
   });
 
+  // Get a single event by ID, checking local store first, then API if not found
+  const getEventById = async (id: number): Promise<Event | null> => {
+    // First check local store
+    const localEvent = events.find(event => event.id === id);
+    if (localEvent) return localEvent;
+
+    // If not found in local store, fetch from API
+    try {
+      const fetchedEvent = await fetchEventById(id);
+      if (fetchedEvent) {
+        // Add to local store for future use
+        addEvent(fetchedEvent);
+      }
+      return fetchedEvent;
+    } catch (err) {
+      console.error('Error fetching event:', err);
+      throw new Error('Failed to fetch event');
+    }
+  };
+
   return {
     events: data || events,
     isLoading,
     loading: isLoading, // For backward compatibility
     error,
+    getEventById,
     createEvent: createEventMutation.mutateAsync,
     updateEvent: updateEventMutation.mutateAsync,
     deleteEvent: deleteEventMutation.mutateAsync,

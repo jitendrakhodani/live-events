@@ -9,18 +9,19 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer border-t border-border py-3">
+    <footer className="footer border-t border-border py-3 container flex h-14 max-w-screen-2xl items-center justify-between">
       
-        {/* <div>
+         <div>
           <h3 className="text-lg font-medium">NowCast</h3>
           <p className="text-sm text-foreground">
-            Connecting people through live events.
+          {/* Drive Awareness. Deliver Impact. Connect through live events. */}
+          Connect through live events.
           </p>
         </div>
-        */}
-        <div className="w-full">
-          {/* <h4 className="text-md font-medium mb-4">Connect With Us</h4>
+       
+        <div>
           <div className="flex space-x-4">
+           <span className="text-md font-medium">Connect With Us</span>
             <a href="#" className="text-muted-foreground hover:text-primary">
               <Twitter className="h-6 w-6" />
             </a>
@@ -33,12 +34,12 @@ const Footer: React.FC = () => {
             <a href="#" className="text-muted-foreground hover:text-primary">
               <Linkedin className="h-6 w-6" />
             </a>
-          </div> */}
+          </div> 
           
         </div>
-        {/* <div> <p className="mt-4 text-xs text-foreground">
+        <div><p className="text-xs text-foreground">
             © {new Date().getFullYear()} NowCast. All rights reserved.
-          </p></div> */}
+          </p></div> 
       
     </footer>
   );
