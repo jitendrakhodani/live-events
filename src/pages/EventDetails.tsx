@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import { useParams } from 'react-router-dom';
 import { Event } from '../types/Event';
-import { Container, Typography, Card } from '@mui/material';
 
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import TimerIcon from '@mui/icons-material/Timer';
 import YouTube from 'react-youtube';
 
 import CountdownClock from '../components/shared/CountdownClock';
@@ -55,9 +50,9 @@ const EventDetails: React.FC = () => {
     fetchEvent();
   }, [eventId, getEventById]);
 
-  if (loading) return <Typography>Loading event details...</Typography>;
-  if (error) return <Typography color="error">{error}</Typography>;
-  if (!event) return <Typography>Event not found</Typography>;
+  if (loading) return <span>Loading event details...</span>;
+  if (error) return <span color="error">{error}</span>;
+  if (!event) return <span>Event not found</span>;
  
   const eventDate = new Date(event.event_timestamp || '');
   const isFutureEvent = eventDate > new Date();
@@ -73,7 +68,7 @@ const EventDetails: React.FC = () => {
           <div className="mt-4">
             <div className="space-y-4 w-full">
               {isFutureEvent && (<div className="flex items-center space-x-2">
-                <CalendarTodayIcon className="h-5 w-5" />
+                
                 <span>{eventDate.toLocaleString()}</span>
               </div>)}
                 <div className="mt-4">

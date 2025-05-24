@@ -17,9 +17,9 @@ const Header: React.FC = () => {
   
   return (
     <header className="sticky top-0 z-50 w-full header-bg bg-clip-padding backdrop-filter  backdrop-blur-none bg-opacity-20 backdrop-saturate-150 backdrop-contrast-50">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+      <div className="flex h-14 max-w-screen-2xl mx-4">
         <div className="mr-4 hidden md:flex">
-          <Link to="/" className="flex items-center space-x-2 mr-20 text-white hover:text-white">
+          <Link to="/" className="flex items-center space-x-1 mr-10 text-white hover:text-white">
             <img src="../../src/styles/logo.avif" width="42" height="42" alt="NowCast" />
             <span className="font-bold">NowCast</span>
           </Link>

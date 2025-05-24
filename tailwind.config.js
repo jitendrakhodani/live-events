@@ -22,7 +22,7 @@ module.exports = {
         foreground: 'hsl(var(--foreground) / <alpha-value>)',
         primary: {
           DEFAULT: '#6366f1',
-          foreground: '#ffffff',
+          foreground: '#c3c3c3',
           50: '#f0f9ff',
           100: '#e0f2fe',
           200: '#bae6fd',
@@ -36,7 +36,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#10b981',
-          foreground: '#ffffff',
+          foreground: '#c3c3c3',
           50: '#f0fdf4',
           100: '#dcfce7',
           200: '#bbf7d0',
@@ -50,7 +50,7 @@ module.exports = {
         },
         destructive: {
           DEFAULT: '#ef4444',
-          foreground: '#ffffff',
+          foreground: '#c3c3c3',
           50: '#fef2f2',
           100: '#fee2e2',
           200: '#fecaca',
@@ -68,15 +68,15 @@ module.exports = {
         },
         accent: {
           DEFAULT: '#60a5fa',
-          foreground: '#ffffff',
+          foreground: '#c3c3c3',
         },
         popover: {
           DEFAULT: '#1e293b',
-          foreground: '#f8fafc',
+          foreground: '#c3c3c3',
         },
         card: {
           DEFAULT: '#1e293b',
-          foreground: '#f8fafc',
+          foreground: '#c3c3c3',
         },
       },
       borderRadius: {
@@ -113,5 +113,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('tailwindcss-animated')
+  ],
 }
