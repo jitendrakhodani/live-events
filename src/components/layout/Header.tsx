@@ -1,14 +1,11 @@
 import React from 'react';
 
-import LoginPopover from '../auth/LoginPopover';
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/button';
+
 import { 
   HomeIcon, 
   CalendarIcon, 
-  PlusIcon, 
-  UserIcon, 
-  LogInIcon 
+  PlusIcon
 } from 'lucide-react';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
