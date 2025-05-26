@@ -9,7 +9,7 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ children, className }) => {
   return (
     <div className={cn(
-      "h-screen w-full bg-white bg-[radial-gradient(#c4c9d3b5_1px,transparent_1px)] [background-size:16px_16px]",
+      "h-full w-full bg-white",
       className
     )}>
       {children}

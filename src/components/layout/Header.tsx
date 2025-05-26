@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { 
   HomeIcon, 
   CalendarIcon, 
-  PlusIcon
+  PlusIcon,
+  Phone
 } from 'lucide-react';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
@@ -43,6 +44,12 @@ const Header: React.FC = () => {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center space-x-2">
+          <Link 
+              to="/contact" 
+              className="text-sm font-medium text-white transition-colors hover:text-white flex items-center"
+            >
+              <Phone className="mr-2 h-4 w-4" /> Contact Us
+            </Link>
           <SignedOut>
         <SignInButton />
       </SignedOut>

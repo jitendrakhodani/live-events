@@ -1,9 +1,11 @@
 import React from 'react';
-import PageLayout from '../components/layout/PageLayout';
-import FeatureCard from '../components/FeatureCard';
-import { cn } from '../lib/utils';
+
+import PageLayout from '@/components/layout/PageLayout';
+import FeatureCard from '@/components/FeatureCard';
+import { cn } from '@/lib/utils';
 import { Meteors } from '@/components/ui/meteros';
 import { Sparkles } from '@/components/Sparkels';
+import { motion } from 'framer-motion';
 
 
 const features = [
@@ -41,14 +43,58 @@ const AnimationContainer = ({ children, className }: { children: React.ReactNode
   );
 };
 
+// Dummy content for parallax sections
+const parallaxSections = [
+  {
+    id: 'hero',
+    title: 'Experience Events Like Never Before',
+    subtitle: 'Live streaming reimagined for the modern audience',
+    content: 'Engage with your audience in real-time with our cutting-edge live streaming platform.',
+    bgColor: 'from-purple-900 to-indigo-900',
+    textColor: 'text-white',
+    speed: 0.2
+  },
+  {
+    id: 'features',
+    title: 'Powerful Features',
+    subtitle: 'Everything you need for successful live events',
+    content: 'Our platform offers a comprehensive suite of tools to make your live events unforgettable.',
+    bgColor: 'from-blue-900 to-cyan-900',
+    textColor: 'text-white',
+    speed: 0.4
+  },
+  {
+    id: 'events',
+    title: 'Upcoming Events',
+    subtitle: 'Join our next live session',
+    content: 'Discover and register for upcoming events tailored to your interests.',
+    bgColor: 'from-emerald-900 to-teal-900',
+    textColor: 'text-white',
+    speed: 0.3
+  },
+  {
+    id: 'contact',
+    title: 'Get In Touch',
+    subtitle: 'We\'d love to hear from you',
+    content: 'Have questions or want to learn more about our platform? Reach out to our team.',
+    bgColor: 'from-amber-900 to-orange-900',
+    textColor: 'text-white',
+    speed: 0.5
+  }
+];
+
 const Home: React.FC = () => {
   
   return (
     <PageLayout>
         <div className="mx-auto px-4 py-8">
        
-
+        
         <Meteors number={20} />
+        <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+>
         <div className="relative">
        
           {/* Background starts here */}
@@ -106,7 +152,21 @@ const Home: React.FC = () => {
               </>
             ))}
           </div>
-
+        </motion.div>
+        {/* {parallaxSections.map((section, index) => (
+        <motion.div
+        key={section.id}
+        initial={{ x: -100 }}
+        whileInView={{ x: 100 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="h-[650px] min-h-[1em] self-stretch">
+              {section.title}
+              {section.subtitle}
+              {section.content}
+        </div>  
+      </motion.div>
+         ))} */}
       </div>
     </PageLayout>
   );

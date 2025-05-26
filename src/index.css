@@ -163,7 +163,6 @@
 }
 
 .countdown-clock {
-  border: 1px solid;
   padding: 1em;
   padding-top: 1.7em;
   margin-top: 2em;
@@ -291,4 +290,35 @@ border: 1px solid rgba(219,219,250,0.2);
       transform: rotate(215deg) translateX(-500px);
       opacity: 0;
     }
+  }
+
+  .wave-line {
+    fill: none;
+    stroke: rgb(133, 185, 236);
+    stroke-width: 1;
+    animation: waveMove 5s linear infinite;
+  }
+
+  .wave-line.second {
+    stroke-opacity: 0.6;
+    animation-duration: 7s;
+  }
+
+  .wave-line.third {
+    stroke-opacity: 0.5;
+    animation-duration: 10s;
+  }
+
+  @keyframes waveMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .wave-group {
+    transform-origin: center;
+    will-change: transform;
   }

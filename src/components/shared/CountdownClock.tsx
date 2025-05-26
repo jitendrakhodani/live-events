@@ -47,8 +47,8 @@ const CountdownClock: React.FC<CountdownClockProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="grid grid-cols-4 w-[40%] pt-2 countdown-clock relative">
-      <div className='absolute -top-4 left-4 bg-white/10 rounded-sm p-1 title'>Event Begins In:</div>
+    <div className="grid grid-cols-4 pt-2 countdown-clock relative">
+      <div className='absolute -top-4 left-4 bg-white/10 rounded-sm p-1 title text-white'>Event Begins In:</div>
       {timeUnits.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center justify-center transition-colors">
           <CircularProgress 

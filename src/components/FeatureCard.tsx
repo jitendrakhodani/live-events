@@ -14,7 +14,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
   
   
   return (
-    <Card className="w-[350px] h-[180px] shadow-lg hover:shadow-2xl animate-fade-right animate-once animate-duration-1000 animate-ease-in">
+    <Card className="w-[350px] h-[180px] shadow-lg shadow-blue-500/50 hover:shadow-2xl animate-fade-right animate-once animate-duration-1000 animate-ease-in">
     {/* <SparklesCore
      background="transparent"
      minSize={0.4}

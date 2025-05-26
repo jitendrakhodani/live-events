@@ -7,6 +7,7 @@ import YouTube from 'react-youtube';
 
 import CountdownClock from '../components/shared/CountdownClock';
 import { useEvents } from '../hooks/useEvents';
+import { extractYouTubeVideoID } from '../lib/utils';
 
 const EventDetails: React.FC = () => {
   const { eventId: eventIdParam } = useParams<{ eventId: string }>();
@@ -14,6 +15,7 @@ const EventDetails: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [event, setEvent] = useState<Event | null>(null);
+  const [videoId, setVideoId] = useState<string | null>(null);
   
   // Parse the event ID from URL and validate it
   const eventId = eventIdParam ? parseInt(eventIdParam, 10) : null;
@@ -36,6 +38,7 @@ const EventDetails: React.FC = () => {
         setLoading(true);
         const fetchedEvent = await getEventById(eventId);
         setEvent(fetchedEvent);
+        setVideoId(extractYouTubeVideoID(fetchedEvent?.asset_url || ''));
         if (!fetchedEvent) {
           setError('Event not found');
         }
@@ -60,15 +63,15 @@ const EventDetails: React.FC = () => {
   return (
     <PageLayout>
       <div className="flex items-center flex-grow w-full px-4 py-8">
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 w-[80%] mx-auto text-white">
-          <h1 className="text-3xl font-bold mb-2">{event?.title}</h1>
-          <div className="mt-2 text-white/90">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 w-[80%] mx-auto text-gray-900 shadow-lg grid grid-cols-2 gap-4 border border-gray-300">
+          <div className="">
+          <h1 className="text-3xl font-bold mb-2 text-gray-700">{event?.title}</h1>
+          <div className="mt-2 text-gray-700">
             {event?.description}
           </div>
           <div className="mt-4">
             <div className="space-y-4 w-full">
-              {isFutureEvent && (<div className="flex items-center space-x-2">
-                
+              {isFutureEvent && (<div className="flex items-center space-x-2 text-gray-700">
                 <span>{eventDate.toLocaleString()}</span>
               </div>)}
                 <div className="mt-4">
@@ -76,9 +79,18 @@ const EventDetails: React.FC = () => {
                     <CountdownClock targetDate={eventDate} />
                   )}
                 </div>              
-                {!isFutureEvent && <div className="aspect-video rounded-lg overflow-hidden">
+            </div>
+          </div>
+          </div>
+          {isFutureEvent && (
+            <div className="drop-shadow-xl m-auto">
+              <img src="../src/styles/you-live.webp" alt="" className=''/>
+            </div>
+          )}
+          
+          {!isFutureEvent && videoId && <div className="aspect-video rounded-lg overflow-hidden">
                   <YouTube
-                    videoId="YPfCfoGaMNY"
+                    videoId={videoId}
                     style={{ width: '100%', height: '100%' }}
                     opts={{
                       height: '100%',
@@ -92,9 +104,6 @@ const EventDetails: React.FC = () => {
                     }}
                   />
                 </div>}
-              
-            </div>
-          </div>
         </div>
       </div>
     </PageLayout>
