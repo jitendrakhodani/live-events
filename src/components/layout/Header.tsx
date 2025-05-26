@@ -18,7 +18,7 @@ const Header: React.FC = () => {
       <div className="flex h-14 max-w-screen-2xl mx-4">
         <div className="mr-4 hidden md:flex">
           <Link to="/" className="flex items-center space-x-1 mr-10 text-white hover:text-white">
-            <img src="../../src/styles/logo.avif" width="42" height="42" alt="NowCast" />
+            <img src="/images/logo.avif" width="42" height="42" alt="NowCast" />
             <span className="font-bold">NowCast</span>
           </Link>
           <nav className="flex items-center space-x-4 lg:space-x-6">

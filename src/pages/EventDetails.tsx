@@ -84,7 +84,7 @@ const EventDetails: React.FC = () => {
           </div>
           {isFutureEvent && (
             <div className="drop-shadow-xl m-auto">
-              <img src="../src/styles/you-live.webp" alt="" className=''/>
+              <img src="/images/you-live.webp" alt="" className=''/>
             </div>
           )}
           

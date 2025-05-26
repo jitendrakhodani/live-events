@@ -32,7 +32,7 @@ const BrowseEvents: React.FC = () => {
               placeholder="Search events..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white/10 text-gray-600 placeholder-gray-900 rounded-sm pl-10 pr-4 py-3 focus:outline-none focus:ring-1 focus:border-primary focus:ring-offset-2"
+              className="w-full bg-white/10 text-gray-600 placeholder-gray-900 rounded-sm pl-10 pr-4 py-3 ring-1 focus:outline-none focus:ring-1 focus:border-primary"
             />
           </div>
         </div>
