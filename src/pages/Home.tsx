@@ -7,7 +7,7 @@ import { Meteors } from '@/components/ui/meteros';
 import { Sparkles } from '@/components/Sparkels';
 
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserRoundCheck, TvMinimalPlay, CalendarClock, ChartPie, BellRing, Vote } from 'lucide-react';
 
 
@@ -56,6 +56,7 @@ const featureBg = [
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -154,7 +155,7 @@ const Home = () => {
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} 
                   transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Button className="mt-4 mb-4 bg-blue-600 hover:bg-blue-700 text-white">Start Streaming Smarter</Button>
+                    <Button className="mt-4 mb-4 bg-blue-600 hover:bg-blue-700 text-white" onClick={() => navigate('/events/create')}>Start Streaming Smarter</Button>
                     <Link to="/contact" className="ml-8 mt-4 mb-4  text-blue-600">Request a Demo</Link>
                 </motion.div>
                 </motion.div>
